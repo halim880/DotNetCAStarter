@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Infrastracture\Infrastracture.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Errors\" />
+  </ItemGroup>
+
 </Project>

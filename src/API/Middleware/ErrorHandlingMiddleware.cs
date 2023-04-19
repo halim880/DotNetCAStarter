@@ -28,7 +28,7 @@ namespace RESTApi.Middleware
         private static Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             var code = HttpStatusCode.InternalServerError;
-            var result = JsonConvert.SerializeObject(new {Error = "An Error occured while processing your request"});
+            var result = JsonConvert.SerializeObject(new {Error = exception.Message});
             context.Response.ContentType= "application/json";
             context.Response.StatusCode = (int)code;
             return context.Response.WriteAsync(result);

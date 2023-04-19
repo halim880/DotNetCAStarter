@@ -1,5 +1,7 @@
 ﻿
+using Application.Features.Products.Commands;
 using Application.Services.Authentication;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
@@ -9,6 +11,8 @@ namespace Application
         public static IServiceCollection AddApplication(this IServiceCollection service)
         {
             service.AddScoped<IAuthenticationService, AuthenticationService>();
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterServices).Assembly));
+
             return service;
         }
     }
