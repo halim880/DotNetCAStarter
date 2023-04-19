@@ -1,22 +1,28 @@
 using Application;
 using Infrastructure;
+using RESTApi;
 using RESTApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Configure project dependency
+{
+    var config = builder.Configuration;
+    builder.Services
+        .AddRESTApiServer()
+        .AddApplication()
+        .AddInfrastructure(config);
+}
 
 {
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-
-    builder.Services
-        .AddApplication()
-        .AddInfrastructure(builder.Configuration);
 }
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -24,8 +30,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
-
-// app.UseExceptionHandler("/error");
 
 app.UseHttpsRedirection();
 

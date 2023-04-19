@@ -16,10 +16,9 @@ namespace RESTApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult StoreProduct(CreateProductCommand command)
+        public async Task<IActionResult> StoreProduct(CreateProductCommand command)
         {
-            _sender.Send(command);
-            return Ok(command);
+            return Ok(await _sender.Send(command));
         }
     }
 }

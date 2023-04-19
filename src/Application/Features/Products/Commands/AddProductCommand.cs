@@ -1,32 +1,36 @@
 ﻿
+using Application.Common.Interfaces.Persistence;
 using Application.Common.Models;
+using Application.Interfaces;
 using Domain.Entities;
 using FluentValidation;
 using MediatR;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace Application.Features.Products.Commands
 {
-    public class CreateProductCommand : IRequest<Result<int>>
+    public class CreateProductCommand : IRequest<Result<Product>>
     {
-        public int ProductId { get; set; } = 0;
         [Required, MinLength(10)]
         public string ProductName { get; set; }
         public string Description { get; set; }
         public double RegularPrice { get; set; }
+        public double SalePrice { get; set; }
     }
 
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Result<int>>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Result<Product>>
     {
-        //private readonly MyDbContext _dbContext;
+        private readonly IProductRepository _repository;
+        private readonly IUnitOfWork<int> _unitOfWork;
+        public CreateProductCommandHandler(IProductRepository repository, IUnitOfWork<int> unitOfWork)
+        {
+            _repository = repository;
+            _unitOfWork = unitOfWork;
+        }
 
-        //public CreateProductCommandHandler(MyDbContext dbContext)
-        //{
-        //    _dbContext = dbContext;
-        //}
-
-        public async Task<Result<int>> Handle(
+        public async Task<Result<Product>> Handle(
             CreateProductCommand command, 
             CancellationToken cancellationToken)
         {
@@ -34,11 +38,20 @@ namespace Application.Features.Products.Commands
             {
                 Name = command.ProductName,
                 RegularPrice = command.RegularPrice,
-                Description = command.Description
+                SalePrice = command.SalePrice,
+                Description = command.Description,
+                CreatedBy = "Halim",
+                CreatedOn = DateTime.Now,
+                LastModifiedBy = "Halim",
+                LastModifiedOn = DateTime.Now,
+                IsDeleted = false
             };
-            var result  = await Task.FromResult(Result<int>.Success(1));
+            //await _repository.SaveAsync(product);
+            await _unitOfWork.Repository<Product>().AddAsync(product);
+            await _unitOfWork.Commit(cancellationToken);
+            var result  = await Task.FromResult(Result<Product>.Success(product));
             return result;
         }
     }
-
+     
 }

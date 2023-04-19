@@ -1,4 +1,5 @@
 ﻿
+using Application.Common.Interfaces.Persistence;
 using Application.Features.Products.Commands;
 using Application.Services.Authentication;
 using FluentValidation;
@@ -12,7 +13,6 @@ namespace Application
         {
             service.AddScoped<IAuthenticationService, AuthenticationService>();
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterServices).Assembly));
-
             return service;
         }
     }

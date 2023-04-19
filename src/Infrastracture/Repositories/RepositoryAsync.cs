@@ -7,7 +7,7 @@ namespace Infrastructure.Repositories
 {
     public class RepositoryAsync<T, TId> : IRepositoryAsync<T, TId> where T : AuditableEntity<TId>
     {
-        private readonly ApplicationDbContext _dbContext;
+        public readonly ApplicationDbContext _dbContext;
 
         public RepositoryAsync(ApplicationDbContext dbContext)
         {

@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
-using System.Text.Json.Serialization;
 
 namespace RESTApi.Middleware
 {
