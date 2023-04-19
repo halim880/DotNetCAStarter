@@ -1,7 +1,7 @@
 ﻿using Application.Common.Interfaces.Persistence;
 using Domain.Entities;
 
-namespace Infrastracture.Persistence
+namespace Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
