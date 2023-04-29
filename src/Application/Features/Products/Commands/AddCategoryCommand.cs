@@ -1,40 +1,32 @@
 ﻿
+
 using Application.Common.Interfaces.Persistence;
 using Application.Common.Models;
-using Application.Interfaces;
 using Domain.Entities;
-using FluentValidation;
 using MediatR;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
 
 namespace Application.Features.Products.Commands
 {
-    public class CreateProductCommand : IRequest<Result<Product>>
+    public class CreateCategoryCommand : IRequest<Result<Category>>
     {
-        [Required, MinLength(10)]
-        public string ProductName { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
-        public double RegularPrice { get; set; }
-        public double SalePrice { get; set; }
     }
 
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Result<Product>>
+    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, Result<Category>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
-        public CreateProductCommandHandler(IUnitOfWork<int> unitOfWork)
+
+        public CreateCategoryCommandHandler(IUnitOfWork<int> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Result<Product>> Handle(
-            CreateProductCommand command, 
-            CancellationToken cancellationToken)
+        public Task<Result<Category>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var product = new Product
+            var product = new Category
             {
-                Name = command.ProductName,
+                Name = command,
                 RegularPrice = command.RegularPrice,
                 SalePrice = command.SalePrice,
                 Description = command.Description,
@@ -47,9 +39,8 @@ namespace Application.Features.Products.Commands
 
             await _unitOfWork.Repository<Product>().AddAsync(product);
             await _unitOfWork.Commit(cancellationToken);
-            var result  = await Task.FromResult(Result<Product>.Success(product));
+            var result = await Task.FromResult(Result<Product>.Success(product));
             return result;
         }
     }
-     
 }

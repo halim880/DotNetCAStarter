@@ -6,7 +6,6 @@ using Application.Common.Interfaces.Services;
 using Application.Interfaces;
 using Infrastracture.Authentication;
 using Infrastracture.Contexts;
-using Infrastracture.Repositories;
 using Infrastracture.Services;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +26,7 @@ namespace Infrastructure
             service.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
             service.AddSingleton<IDateTimeProvider, DateTimeProvider>();
             service.AddScoped<IUserRepository, UserRepository>();
-            service.AddScoped<IProductRepository, ProductRepository>();
+            //service.AddScoped<IProductRepository, ProductRepository>();
             service.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
             return service;
         }
