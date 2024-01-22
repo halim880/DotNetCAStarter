@@ -24,23 +24,24 @@ namespace Application.Features.Products.Commands
 
         public Task<Result<Category>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var product = new Category
-            {
-                Name = command,
-                RegularPrice = command.RegularPrice,
-                SalePrice = command.SalePrice,
-                Description = command.Description,
-                CreatedBy = "Halim",
-                CreatedOn = DateTime.Now,
-                LastModifiedBy = "Halim",
-                LastModifiedOn = DateTime.Now,
-                IsDeleted = false
-            };
+            //var product = new Category
+            //{
+            //    Name = command,
+            //    RegularPrice = command.RegularPrice,
+            //    SalePrice = command.SalePrice,
+            //    Description = command.Description,
+            //    CreatedBy = "Halim",
+            //    CreatedOn = DateTime.Now,
+            //    LastModifiedBy = "Halim",
+            //    LastModifiedOn = DateTime.Now,
+            //    IsDeleted = false
+            //};
 
-            await _unitOfWork.Repository<Product>().AddAsync(product);
-            await _unitOfWork.Commit(cancellationToken);
-            var result = await Task.FromResult(Result<Product>.Success(product));
-            return result;
+            //await _unitOfWork.Repository<Product>().AddAsync(product);
+            //await _unitOfWork.Commit(cancellationToken);
+            //var result = await Task.FromResult(Result<Product>.Success(product));
+            //return result;
+            return null;
         }
     }
 }
