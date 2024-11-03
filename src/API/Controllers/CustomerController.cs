@@ -1,7 +1,5 @@
 ﻿using Application.Features.Customers.Commands;
-using Application.Features.Products.Commands;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RESTApi.Controllers

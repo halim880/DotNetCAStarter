@@ -1,5 +1,4 @@
 ﻿using Application.Interfaces.Services;
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastracture.Contexts
@@ -11,8 +10,8 @@ namespace Infrastracture.Contexts
 
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        //public DbSet<Product> Products { get; set; }
+        //public DbSet<Category> Categories { get; set; }
+        //public DbSet<Customer> Customers { get; set; }
     }
 }
