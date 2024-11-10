@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{41918D8D-FCDF-4E85-B587-6C8B48A302D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{41918D8D-FCDF-4E85-B587-6C8B48A302D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{B7A8479E-5166-4A11-B5E5-BCBB3A8A38EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{B7A8479E-5166-4A11-B5E5-BCBB3A8A38EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastracture", "Infrastracture\Infrastracture.csproj", "{068E4D37-8156-4D54-8DCA-AE7BD879DAD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastracture", "Infrastracture\Infrastracture.csproj", "{068E4D37-8156-4D54-8DCA-AE7BD879DAD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{420B219B-4DE2-4C3F-A2DE-02764A7664D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTApi", "API\RESTApi.csproj", "{C0703096-4BB1-4765-90B2-0AC2AFF23C96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTApi", "API\RESTApi.csproj", "{C0703096-4BB1-4765-90B2-0AC2AFF23C96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{A3A3C909-BD1B-4957-9418-73E0F0E2D044}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{A3A3C909-BD1B-4957-9418-73E0F0E2D044}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{872B4D1C-B6E2-4C6A-8428-9929CCAF0B7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{65A55E50-FA83-4A79-92A6-7B2762CAB486}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,11 +45,18 @@ Global
 		{A3A3C909-BD1B-4957-9418-73E0F0E2D044}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3A3C909-BD1B-4957-9418-73E0F0E2D044}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A3C909-BD1B-4957-9418-73E0F0E2D044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A55E50-FA83-4A79-92A6-7B2762CAB486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A55E50-FA83-4A79-92A6-7B2762CAB486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A55E50-FA83-4A79-92A6-7B2762CAB486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A55E50-FA83-4A79-92A6-7B2762CAB486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{41918D8D-FCDF-4E85-B587-6C8B48A302D6} = {872B4D1C-B6E2-4C6A-8428-9929CCAF0B7C}
+		{B7A8479E-5166-4A11-B5E5-BCBB3A8A38EE} = {872B4D1C-B6E2-4C6A-8428-9929CCAF0B7C}
+		{068E4D37-8156-4D54-8DCA-AE7BD879DAD8} = {872B4D1C-B6E2-4C6A-8428-9929CCAF0B7C}
 		{C0703096-4BB1-4765-90B2-0AC2AFF23C96} = {420B219B-4DE2-4C3F-A2DE-02764A7664D8}
 		{A3A3C909-BD1B-4957-9418-73E0F0E2D044} = {420B219B-4DE2-4C3F-A2DE-02764A7664D8}
 	EndGlobalSection

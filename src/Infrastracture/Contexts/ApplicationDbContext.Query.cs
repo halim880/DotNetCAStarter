@@ -1,8 +1,7 @@
 ﻿
-namespace Infrastracture.Contexts
-{
-    public partial class ApplicationDbContext
-    {
+namespace Infrastracture.Contexts;
 
-    }
+public partial class ApplicationDbContext
+{
+
 }

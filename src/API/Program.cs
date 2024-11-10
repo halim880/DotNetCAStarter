@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 {
     var config = builder.Configuration;
     builder.Services
-        .AddRESTApiServer()
+        .AddRESTApiServer(config)
         .AddApplication()
         .AddInfrastructure(config);
 }

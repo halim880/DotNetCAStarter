@@ -9,11 +9,11 @@ namespace Application
 {
     public static class RegisterServices
     {
-        public static IServiceCollection AddApplication(this IServiceCollection service)
+        public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            service.AddScoped<IAuthenticationService, AuthenticationService>();
-            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterServices).Assembly));
-            return service;
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterServices).Assembly));
+            return services;
         }
     }
 }
